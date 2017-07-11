@@ -2,7 +2,8 @@
 
 /**
  * Class: Configuration manager
- * Version: 1a
+ * Version: 2.0
+ * Note: All folders in path must exist otherwise class will throw error
  */
 
 class ConfigManager {
