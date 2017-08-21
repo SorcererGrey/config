@@ -37,5 +37,5 @@ $conf->backup('bk_21.08.17');
 ```
 
 ### Other information
-The folder that will contain or already contains the JSON file you wish to interact with ~must already
-exist~ before you try to interact with it using this class
+The folder that will contain or already contains the JSON file you wish to interact with *must already
+exist* before you try to interact with it using this class
