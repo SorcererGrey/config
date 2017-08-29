@@ -20,7 +20,7 @@ if ($new_config) {
 }
 
 // Test add to doc
-$set_config = $config->set_value('1', 'name', 'Dylan Lavery');
+$set_config = $config->set_value('name', 'Dylan Lavery', true);
 echo 'Document write: ';
 if ($set_config) {
 

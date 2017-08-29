@@ -7,7 +7,7 @@ store information or configurations that can be read and written to with a small
 |-----|-----|-----|-----|
 |get_doc|N/A|Get the decoded contents of a JSON file|Array of file contents|
 |new_doc|N/A|Generate a new empty JSON file with the provided name|True on success|
-|set_value|Depth, Key, Value, Key_2, Key_3, Key_4|Write a value to an existing JSON file|True on success|
+|set_value|Key, Value, Readable (Uncompressed if true)|Write a value to an existing JSON file|True on success|
 |backup|Filename|Backup the current contents of a JSON file|True on success|
 ### Usage
 The class can easily be implemented using the following code
