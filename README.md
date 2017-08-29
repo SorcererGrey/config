@@ -25,7 +25,7 @@ $conf->new_doc();
 
 // Write to the config file, the depth (This is where the key:value pair are
 // located eg {"details": {"name":"Dylan"}} would be a depth of 2), key and value must be provided
-$conf->set_value('1', 'forename', 'Dylan');
+$conf->set_value('details', array('name'=>'dylan'), true);
 
 // Read from the config file, this will give you an array of contents
 $conf->get_doc();
