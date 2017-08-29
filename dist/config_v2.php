@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Config
+ * Version --2.1
+ */
+
 class Config {
 
     public $config = array(
@@ -78,7 +83,7 @@ class Config {
 
     }
 
-    function set_value ($depth = 1,$key, $value, $key_2 = 0, $key_3 = 0, $key_4 = 0) {
+    function set_value ($key, $value, $readable = false) {
 
         // Check if joint path is set
         if ($this->config['path_ready']) {
@@ -89,32 +94,15 @@ class Config {
                 // Get contents of config file
                 $arr_contents = json_decode(file_get_contents($this->config['joint_path']), true);
 
-                if ($depth > 1) {
-
-                    switch ($depth) {
-
-                        case 2:
-                            // Create new key:value entry
-                            $arr_contents[$key][$key_2] = $value;
-                            break;
-                        case 3:
-                            // Create new key:value entry
-                            $arr_contents[$key][$key_2][$key_3] = $value;
-                            break;
-                        case 4:
-                            // Create new key:value entry
-                            $arr_contents[$key][$key_2][$key_3][$key_4] = $value;
-                            break;
-
-                    }
-
-                } else {
-                    $arr_contents[$key] = $value;
-                }
+                $arr_contents[$key] = $value;
 
                 // Write the the new config back to the specified file
                 $new_content = fopen($this->config['joint_path'], 'w');
-                fwrite($new_content, json_encode($arr_contents, JSON_PRETTY_PRINT));
+                if ($readable) {
+                    fwrite($new_content, json_encode($arr_contents, JSON_PRETTY_PRINT));
+                } else {
+                    fwrite($new_content, json_encode($arr_contents));
+                }
                 fclose($new_content);
                 return true;
 
